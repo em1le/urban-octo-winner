@@ -1,4 +1,5 @@
 
-.has-justifies-content {
+.has-justified-content {
     justify-content: center;
+    flex-direction: column;
 }
