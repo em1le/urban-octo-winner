@@ -12,7 +12,7 @@ from dashboard.views import (
 urlpatterns = [
     path("", login_required(DashboardView.as_view()), name="list-article"),
     path(
-        "add/hardware/",
+        "add/reference/",
         login_required(CreateReferenceView.as_view()),
         name="add-references",
     ),
