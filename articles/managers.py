@@ -8,9 +8,9 @@ from django.db import models
 
 class ArticleManager(models.Manager):
     def get_catalog(self, user) -> Dict[str, Decimal | int]:
-        catalog = {"price": 0, "audience": 0}
+        catalog = {"total_price": 0, "total_audience": 0}
         for article in self.filter(user=user):
-            catalog["price"] += article.price
-            catalog["audience"] += article.audience
+            catalog["total_price"] += article.price
+            catalog["total_audience"] += article.audience
         return catalog
 

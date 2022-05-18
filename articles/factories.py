@@ -15,5 +15,5 @@ class ArticleFactory(DjangoModelFactory):
 
     audience = randint(1, 1000000)
     price = Decimal(randint(1, 10000))
-    hardware = SubFactory(ReferenceFactory)
+    reference = SubFactory(ReferenceFactory)
     user = SubFactory(UserFactory)
