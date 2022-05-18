@@ -25,7 +25,7 @@ class Article(LoggingModel):
         verbose_name=_("Utilisateur")
     )
 
-    object = ArticleManager()
+    objects = ArticleManager()
 
     def __str__(self) -> str:
         return f"{self.pk} | {self.reference}"

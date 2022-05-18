@@ -14,7 +14,7 @@ urlpatterns = [
     path(
         "add/hardware/",
         login_required(CreateReferenceView.as_view()),
-        name="add-hardware",
+        name="add-references",
     ),
     path("add/", login_required(CreateArticleView.as_view()), name="add-article"),
     path(

@@ -9,8 +9,8 @@ from django.db.models import Sum
 
 
 class ReferenceManager(models.Manager):
-    def listing_by_type(self, kind: str, user: User) -> Dict[str, Decimal | int]:
-        return self.filter(kind=type, article__user=user).aggregate(
+    def listing_by_kind(self, kind: str, user: User) -> Dict[str, Decimal | int]:
+        return self.filter(kind=kind, article__user=user).aggregate(
             audience=Sum("article__audience", default=0),
             price=Sum("article__price", default=0),
         )

@@ -22,14 +22,14 @@ class DashboardView(ListView):
     def get_context_data(self, **kwargs: Mapping) -> Dict[str, Any]:
         """Add more context to dashboard as we want to display disks listing."""
         context = super().get_context_data(**kwargs)
-        models = set(Reference.objects.values_list("model", flat=True))
+        kinds = set(Reference.objects.values_list("kind", flat=True))
         context["models"] = {
-            model: Reference.objects.listing_by_model(model, self.request.user)
-            for model in models
+            kind: Reference.objects.listing_by_type(kind, self.request.user)
+            for kind in kinds
         }
-        inventory = Article.objects.get_catalog(user=self.request.user)
-        context["total_audience"] = inventory["total_audience"]
-        context["total_price"] = inventory["total_price"]
+        catalog = Article.objects.get_catalog(user=self.request.user)
+        context["total_audience"] = catalog["total_audience"]
+        context["total_price"] = catalog["total_price"]
         return context
 
 
