@@ -5,7 +5,7 @@ from references.models import Reference
 from articles.factories import ArticleFactory
 
 
-class HardwareTestCase(TestCase):
+class ReferenceTestCase(TestCase):
     @classmethod
     def setUpTestData(cls) -> None:
         cls.article = ArticleFactory()
@@ -17,6 +17,6 @@ class HardwareTestCase(TestCase):
 
     def test_listing_by_model(self):
         expected = {"audience": self.article.audience, "price": self.article.price}
-        reference_type = self.article.reference.kind
-        result = Reference.objects.listing_by_model(reference_type, self.article.user)
+        reference_kind = self.article.reference.kind
+        result = Reference.objects.listing_by_kind(reference_kind, self.article.user)
         self.assertDictEqual(result, expected)

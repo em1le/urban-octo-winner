@@ -7,10 +7,10 @@ from django.db import models
 
 
 class ArticleManager(models.Manager):
-    def get_catalog(self, user) -> Dict[str, Decimal | int]:
-        catalog = {"total_price": 0, "total_audience": 0}
+    def get_revenue(self, user) -> Dict[str, Decimal | int]:
+        catalog = {"total_revenue": 0, "total_audience": 0}
         for article in self.filter(user=user):
-            catalog["total_price"] += article.price
+            catalog["total_revenue"] += article.total_revenue
             catalog["total_audience"] += article.audience
         return catalog
 

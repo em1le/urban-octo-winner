@@ -9,6 +9,6 @@ class ReferenceFactory(DjangoModelFactory):
     class Meta:
         model = Reference
 
-    label = Faker("label")
+    label = Faker("file_name")
     kind = FuzzyChoice(ReferenceKind.choices)
     file = Faker("url")

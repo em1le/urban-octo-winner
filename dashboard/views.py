@@ -27,9 +27,9 @@ class DashboardView(ListView):
             kind: Reference.objects.listing_by_kind(kind, self.request.user)
             for kind in kinds
         }
-        catalog = Article.objects.get_catalog(user=self.request.user)
+        catalog = Article.objects.get_revenue(user=self.request.user)
         context["total_audience"] = catalog["total_audience"]
-        context["total_price"] = catalog["total_price"]
+        context["total_revenue"] = catalog["total_revenue"]
         return context
 
 
