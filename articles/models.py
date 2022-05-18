@@ -15,6 +15,7 @@ class Article(LoggingModel):
     reference = models.OneToOneField(
         "references.Reference",
         on_delete=models.SET_NULL,
+        null=True,
         verbose_name=_("Référence")
     )
 
