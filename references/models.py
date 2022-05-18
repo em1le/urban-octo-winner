@@ -18,7 +18,10 @@ class Reference(LoggingModel):
 
     kind = models.CharField(verbose_name=_("Type"), max_length=5, choices=ReferenceKind.choices, default=ReferenceKind.VIDEO)
 
-    file = models.FileField(verbose_name=_("Fichier"))
+    file = models.FileField(
+        verbose_name=_("Fichier"),
+        upload_to='media/'
+    )
 
     objects = ReferenceManager()
 

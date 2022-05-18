@@ -24,7 +24,7 @@ class DashboardView(ListView):
         context = super().get_context_data(**kwargs)
         kinds = set(Reference.objects.values_list("kind", flat=True))
         context["models"] = {
-            kind: Reference.objects.listing_by_type(kind, self.request.user)
+            kind: Reference.objects.listing_by_kind(kind, self.request.user)
             for kind in kinds
         }
         catalog = Article.objects.get_catalog(user=self.request.user)
