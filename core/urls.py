@@ -16,10 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from core.schema import schema_view
 from core.views import HomeView
+
 
 urlpatterns = [
     path("", HomeView.as_view(), name="home"),
     path("accounts/", include("accounts.urls")),
-    path('admin/', admin.site.urls),
+    path("admin/", admin.site.urls),
+    path("articles/", include("articles.urls")),
+    path("swagger/", schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
 ]
