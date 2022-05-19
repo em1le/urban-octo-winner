@@ -7,23 +7,53 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Reference',
+            name="Reference",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created', models.DateTimeField(auto_now_add=True, verbose_name='Date de création')),
-                ('modified', models.DateTimeField(auto_now=True, verbose_name='Date de modification')),
-                ('label', models.CharField(max_length=80, verbose_name='Label')),
-                ('kind', models.CharField(choices=[('video', 'Vidéo'), ('audio', 'Audio'), ('photo', 'Photo'), ('misc', 'Divers')], default='video', max_length=5, verbose_name='Type')),
-                ('file', models.FileField(upload_to='media/', verbose_name='Fichier')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "created",
+                    models.DateTimeField(
+                        auto_now_add=True, verbose_name="Date de création"
+                    ),
+                ),
+                (
+                    "modified",
+                    models.DateTimeField(
+                        auto_now=True, verbose_name="Date de modification"
+                    ),
+                ),
+                ("label", models.CharField(max_length=80, verbose_name="Label")),
+                (
+                    "kind",
+                    models.CharField(
+                        choices=[
+                            ("video", "Vidéo"),
+                            ("audio", "Audio"),
+                            ("photo", "Photo"),
+                            ("misc", "Divers"),
+                        ],
+                        default="video",
+                        max_length=5,
+                        verbose_name="Type",
+                    ),
+                ),
+                ("file", models.FileField(upload_to="media/", verbose_name="Fichier")),
             ],
             options={
-                'verbose_name': 'Référence',
-                'verbose_name_plural': 'Références',
+                "verbose_name": "Référence",
+                "verbose_name_plural": "Références",
             },
         ),
     ]

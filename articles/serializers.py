@@ -12,4 +12,3 @@ class ArticleSerializer(serializers.ModelSerializer):
         request = self.context["request"]
         article = Article.objects.create(user=request.user, **validated_data)
         return article
-
