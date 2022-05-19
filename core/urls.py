@@ -1,4 +1,4 @@
-"""catalog URL Configuration
+"""core URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.0/topics/http/urls/
@@ -14,8 +14,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+
+from core.schema import schema_view
+from core.views import HomeView
+
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path("", HomeView.as_view(), name="home"),
+    path("accounts/", include("accounts.urls")),
+    path("admin/", admin.site.urls),
+    path("articles/", include("articles.urls")),
+    path("dashboard/", include("dashboard.urls")),
+    path("swagger/", schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
 ]
