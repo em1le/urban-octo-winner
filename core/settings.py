@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import os
 from pathlib import Path
 import sys
-
+import django_heroku
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -153,13 +153,17 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
+STATIC_ROOT = Path.joinpath(BASE_DIR, "static_cdn")
+MEDIA_ROOT = Path.joinpath(BASE_DIR, "media_cdn")
+
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
 
 # Extra places for collectstatic to find static files.
-STATICFILES_DIRS = (
-    Path.joinpath(BASE_DIR, 'static'),
-)
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+    BASE_DIR / 'media',
+]
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
@@ -171,3 +175,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = "/dashboard"
 LOGIN_URL = "/accounts/login/"
 LOGOUT_REDIRECT_URL = "/"
+
+django_heroku.settings(locals())
