@@ -16,5 +16,4 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'core.settings')
 
 
 application = get_wsgi_application()
-application = WhiteNoise(application, root="/static_cdn")
-application.add_files("/media_cdn", prefix="media/")
+application = WhiteNoise(application)
