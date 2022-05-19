@@ -1,4 +1,3 @@
-
 from typing import Dict, Any, Mapping
 
 from django.db.models import QuerySet

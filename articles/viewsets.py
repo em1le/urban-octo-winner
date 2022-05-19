@@ -11,4 +11,3 @@ class ArticleViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self) -> QuerySet:
         return self.request.user.article_set.all()
-

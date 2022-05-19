@@ -27,5 +27,9 @@ urlpatterns = [
     path("articles/", include("articles.urls")),
     path("dashboard/", include("dashboard.urls")),
     path("reference/", include("references.urls")),
-    path("swagger/", schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    path(
+        "swagger/",
+        schema_view.with_ui("swagger", cache_timeout=0),
+        name="schema-swagger-ui",
+    ),
 ]

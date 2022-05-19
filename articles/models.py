@@ -11,11 +11,7 @@ from utils.models import LoggingModel
 
 class Article(LoggingModel):
 
-    price = models.DecimalField(
-        verbose_name=_("Prix"),
-        decimal_places=2,
-        max_digits=8
-    )
+    price = models.DecimalField(verbose_name=_("Prix"), decimal_places=2, max_digits=8)
 
     audience = models.IntegerField(verbose_name=_("Audience"))
 
@@ -23,13 +19,11 @@ class Article(LoggingModel):
         "references.Reference",
         on_delete=models.SET_NULL,
         null=True,
-        verbose_name=_("Référence")
+        verbose_name=_("Référence"),
     )
 
     user = models.ForeignKey(
-        to=User,
-        on_delete=models.CASCADE,
-        verbose_name=_("Utilisateur")
+        to=User, on_delete=models.CASCADE, verbose_name=_("Utilisateur")
     )
 
     objects = ArticleManager()

@@ -13,4 +13,3 @@ class ArticleManager(models.Manager):
             catalog["total_revenue"] += article.total_revenue
             catalog["total_audience"] += article.audience
         return catalog
-
