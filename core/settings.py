@@ -99,6 +99,15 @@ else:
             'PORT': os.getenv("DATABASE_PORT")
         }
     }
+    import sentry_sdk
+    from sentry_sdk.integrations.django import DjangoIntegration
+
+    sentry_sdk.init(
+        dsn=os.getenv("SENTRY_URL", ""),
+        integrations=[DjangoIntegration()],
+        traces_sample_rate=1.0,
+        send_default_pii=True
+    )
 
 
 # Password validation
