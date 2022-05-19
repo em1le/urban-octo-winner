@@ -1,3 +1,3 @@
 release: python manage.py migrate
-release: python manage.py collecstatic --no-input
+release: python manage.py collectstatic --no-input
 web: gunicorn core.wsgi:application
