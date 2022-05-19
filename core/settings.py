@@ -84,35 +84,26 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-if DEBUG:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv("DATABASE_NAME"),
+        'USER': os.getenv("DATABASE_USER"),
+        'PASSWORD': os.getenv("DATABASE_PASSWORD"),
+        'HOST': os.getenv("DATABASE_HOST"),
+        'PORT': os.getenv("DATABASE_PORT")
     }
+}
 
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': os.getenv("DATABASE_NAME"),
-            'USER': os.getenv("DATABASE_USER"),
-            'PASSWORD': os.getenv("DATABASE_PASSWORD"),
-            'HOST': os.getenv("DATABASE_HOST"),
-            'PORT': os.getenv("DATABASE_PORT")
-        }
-    }
+if not DEBUG:
     import sentry_sdk
     from sentry_sdk.integrations.django import DjangoIntegration
-
     sentry_sdk.init(
         dsn=os.getenv("SENTRY_URL", ""),
         integrations=[DjangoIntegration()],
         traces_sample_rate=1.0,
         send_default_pii=True
     )
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
