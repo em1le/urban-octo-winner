@@ -7,7 +7,9 @@ charset-normalizer==2.0.12
 coreapi==2.3.3
 coreschema==0.0.4
 cryptography==37.0.2
+dj-database-url==0.5.0
 Django==4.0.4
+django-heroku==0.3.1
 djangorestframework==3.13.1
 drf-yasg==1.20.0
 factory-boy==3.2.1
@@ -22,6 +24,7 @@ jsonschema==4.5.1
 MarkupSafe==2.1.1
 outcome==1.1.0
 packaging==21.3
+psycopg2==2.9.3
 psycopg2-binary==2.9.3
 pycparser==2.21
 pyOpenSSL==22.0.0
