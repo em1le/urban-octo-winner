@@ -19,12 +19,41 @@ As a media content creator :
 
 ### UML
 
-![UML Diagram](http://www.plantuml.com/plantuml/png/jLNTRjiy3BttK-ZhTxC2Az0L3T3rgkynR09ZCGuR_QWItHyCVVT9TJmvjk6sCAO0WNL47PA7b7GN6GAtHbV_yHuD2WECWQ1YvmKxiNNCpWX50MicPwju8EiXW16QBFABH-42xrrLrHfY58cDQerH7Z_4xqe8KGS4HdKh530o6SoWSOfsD4Pze1eJX3KPq1c1LX7Q399bR31aCE0EGqOb9O8jDMajust4aA6XxN3wsiVPybusmRM-Yz22IGuU8THx25--RIxFtzyfFGP3CPApiMFfu97xOlNXmCgMetxECbgMMUynIUqKZgA_xA8_HQysc-MSidITEv-m9nVKWFBgvcrpicQfNKFsj6eKPMmzXioHok6Sxein4RRmp2-X0TB3iA_FUmyCkrrXJmZKJ8zOe1oIl7Tanrsrep3dy7r1kahdyiutrtp9bodptxHtChgkTTGzsCP9K8PiBbB72pNd_Lc9KqtSzXvhVYDcVEO15D27GGMExPGcja5fC4Pei6nQQCvfKYMWdORcLaG3MgT5qTf8ZKNrJd93PyVyl9SQjgYd1y0uDOKNwGqr0RWK9P5FJz3ikSgcUdoRBRcAE3ZWnubKm52KnMTF0JE8GzfYVi2N4iXrokxeeroFKVQVdx-AHwhUTEeToAe2ThdlIEF7T8uFcXYbWSZzRPDBMNBEufOPRxKyHO9pxA71J9s1pDYjZdr4V6XBtXrBQm_MFTaCfEKoVwsgoSir6BykVlo_-Pv_Nxq6iZylnE3Ed8nRSTOtFgcpppBF5gym_uLw-la7QJdmpduky8ve3NMn756NXG7_lFqy_-mbKFY7SF4mkiZBM2_EFFNwXbbuAbRBlio_DlB94rJ6FsPUtoftQ5Lhz1y0)
+![UML Diagram](http://www.plantuml.com/plantuml/png/bPBFJiCm3CRlVOemBanYqfYeD7RQUo2elCHT3VbJEUuGGhmxYKffsNfPUcZwY_NvwnVlem1Bvsnn8mqwL0u4cQ2Gq2e9wX14WbE66BLGy4Ly9zy2WrEMFCfdYogmDA4ej8KOLL8ZRJ5MlnlrLIYbD6FIDJjbqal8OOOk6AhfdBPC6XD2JGvi9j0PGfyXUS4ZSeQCDNAc5IM10ntJMUPTHCveMZlz_1vyTj9KkRWts2Rs4JWLde1r0tptiDakyqcgbig6fF_V9yKgTYroraW6Gh13UmyE9phbUjIPFq87P4UyAH-NGmU1kXxL4m4jTC8HPKlLMo1_dcDDFD_m8f0-aJ7HM0tRws_FmW4dlxBj-wMPCICibxq_EtMsddLsCKsJzRfwlYsVydFVMY3_ibAJMxrOExKOPeFCubhbsNH6vJyqoE_HcyxP7m00)
 
-## Resources
+### Project installation
+
+#### Docker
+
+First you have to make sure that docker is installed on your local environment.
+
+Try the following command :
+```shell
+$ docker --version
+```
+If it show something such as `Docker version 20.10.12, build e91ed57` it should be fine.
+
+Otherwise [follow tutorial on docker](https://docs.docker.com/get-started/)
+
+#### Docker Compose
+
+We need docker compose installed in order to make it work.
+As written on docker part, you should try the following command to check if docker is installed :
+```shell
+$ docker-compose --version
+```
+If something like `docker-compose version 1.29.2, build 5becea4c` pops up it's fine in the other hand you would have to take a look
+on [how to install docker-compose](https://docs.docker.com/compose/install/)
+
+#### Let's do it
+
+The basic stuff is installed to make it work.
+Thus launch followings :
+
+```shell
+$ docker-compose up --build
+```
 
 ## Todo
  - Documentation
- - Docker
- - CI/CD
- - Heroku
+
